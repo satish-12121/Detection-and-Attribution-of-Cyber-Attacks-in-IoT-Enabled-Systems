@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IoT Cyber Attack Detection & Attribution</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            🛡️ IoT SecureNet
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#devices">Devices</a>
+            <a href="#attacks">Attacks</a>
+            <a href="#logs">Logs</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Detection and Attribution of
+                <span>Cyber Attacks</span>
+                in IoT-Enabled Systems
+            </h1>
+
+            <p>
+                Monitor IoT devices, detect suspicious activities,
+                classify cyber attacks and identify their possible sources.
+            </p>
+
+            <button onclick="startMonitoring()" class="primary-btn">
+                ▶ Start Monitoring
+            </button>
+
+            <button onclick="simulateAttack()" class="danger-btn">
+                ⚠ Simulate Attack
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="container">
+
+        <div class="section-title">
+            <h2>Security Dashboard</h2>
+            <p>Real-time IoT network security monitoring</p>
+        </div>
+
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">📡</div>
+                <h3 id="deviceCount">12</h3>
+                <p>Connected Devices</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon">🟢</div>
+                <h3 id="normalCount">10</h3>
+                <p>Normal Devices</p>
+            </div>
+
+
+            <div class="stat-card attack-card">
+                <div class="stat-icon">🔴</div>
+                <h3 id="attackCount">2</h3>
+                <p>Detected Attacks</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <h3 id="riskScore">38%</h3>
+                <p>Network Risk</p>
+            </div>
+
+        </div>
+
+
+        <!-- Security Status -->
+        <div class="security-status">
+
+            <div>
+                <h3>Network Security Status</h3>
+
+                <p id="securityMessage">
+                    System is monitoring IoT devices.
+                </p>
+            </div>
+
+            <div id="statusBadge" class="status-safe">
+                SECURE
+            </div>
+
+        </div>
+
+
+        <!-- Risk Meter -->
+        <div class="panel">
+
+            <h3>Threat Risk Level</h3>
+
+            <div class="risk-container">
+
+                <div id="riskBar" class="risk-bar"></div>
+
+            </div>
+
+            <p>
+                Current Risk:
+                <strong id="riskText">38%</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- IoT Devices -->
+    <section id="devices" class="container">
+
+        <div class="section-title">
+            <h2>IoT Device Monitoring</h2>
+            <p>Current status of connected devices</p>
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Device Type</th>
+                        <th>IP Address</th>
+                        <th>Traffic</th>
+                        <th>Status</th>
+                        <th>Risk</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="deviceTable">
+
+                    <tr>
+                        <td>IoT-001</td>
+                        <td>Smart Camera</td>
+                        <td>192.168.1.101</td>
+                        <td>Normal</td>
+                        <td><span class="normal">Online</span></td>
+                        <td>Low</td>
+                    </tr>
+
+                    <tr>
+                        <td>IoT-002</td>
+                        <td>Temperature Sensor</td>
+                        <td>192.168.1.102</td>
+                        <td>Normal</td>
+                        <td><span class="normal">Online</span></td>
+                        <td>Low</td>
+                    </tr>
+
+                    <tr>
+                        <td>IoT-003</td>
+                        <td>Smart Door Lock</td>
+                        <td>192.168.1.103</td>
+                        <td>High</td>
+                        <td><span class="warning">Suspicious</span></td>
+                        <td>Medium</td>
+                    </tr>
+
+                    <tr>
+                        <td>IoT-004</td>
+                        <td>Smart Router</td>
+                        <td>192.168.1.104</td>
+                        <td>Very High</td>
+                        <td><span class="danger">Under Attack</span></td>
+                        <td>High</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Attack Detection -->
+    <section id="attacks" class="container">
+
+        <div class="section-title">
+
+            <h2>Attack Detection & Attribution</h2>
+
+            <p>
+                Identify attack type and possible source of malicious activity
+            </p>
+
+        </div>
+
+
+        <div class="attack-grid">
+
+            <div class="attack-panel">
+
+                <h3>🧠 Detection Engine</h3>
+
+                <div class="detection-box">
+
+                    <p>Attack Type</p>
+
+                    <h2 id="attackType">
+                        No Active Attack
+                    </h2>
+
+                </div>
+
+
+                <div class="detection-box">
+
+                    <p>Detection Method</p>
+
+                    <h3 id="detectionMethod">
+                        Behaviour Analysis
+                    </h3>
+
+                </div>
+
+
+                <div class="detection-box">
+
+                    <p>Confidence</p>
+
+                    <h3 id="confidence">
+                        0%
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="attack-panel">
+
+                <h3>🎯 Attack Attribution</h3>
+
+
+                <div class="attribution-box">
+
+                    <p>Source IP</p>
+
+                    <h2 id="sourceIP">
+                        Not Identified
+                    </h2>
+
+                </div>
+
+
+                <div class="attribution-box">
+
+                    <p>Source Device</p>
+
+                    <h3 id="sourceDevice">
+                        Unknown
+                    </h3>
+
+                </div>
+
+
+                <div class="attribution-box">
+
+                    <p>Threat Level</p>
+
+                    <h3 id="threatLevel">
+                        Low
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Security Logs -->
+    <section id="logs" class="container">
+
+        <div class="section-title">
+
+            <h2>Security Event Logs</h2>
+
+            <p>Recent activities detected by the security system</p>
+
+        </div>
+
+
+        <div class="logs-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Time</th>
+                        <th>Device</th>
+                        <th>Event</th>
+                        <th>Source IP</th>
+                        <th>Severity</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="logTable">
+
+                    <tr>
+                        <td>03:10:12</td>
+                        <td>IoT-001</td>
+                        <td>Normal traffic detected</td>
+                        <td>192.168.1.101</td>
+                        <td><span class="normal">Low</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>03:11:34</td>
+                        <td>IoT-003</td>
+                        <td>Unusual traffic detected</td>
+                        <td>192.168.1.103</td>
+                        <td><span class="warning">Medium</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>03:12:46</td>
+                        <td>IoT-004</td>
+                        <td>Multiple connection attempts</td>
+                        <td>10.0.0.45</td>
+                        <td><span class="danger">High</span></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Project -->
+    <section class="about">
+
+        <div class="container">
+
+            <h2>About the Project</h2>
+
+            <p>
+                This project demonstrates a security monitoring framework
+                designed for IoT-enabled environments. The system analyzes
+                device behaviour and network activity to identify suspicious
+                patterns, detect potential cyber attacks and attribute
+                malicious activities to their possible source.
+            </p>
+
+
+            <div class="features">
+
+                <div>
+                    <h3>🔍 Detection</h3>
+                    <p>
+                        Identifies abnormal network behaviour and suspicious
+                        activities.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h3>🧠 Classification</h3>
+                    <p>
+                        Classifies suspicious activities into different
+                        cyber attack categories.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h3>🎯 Attribution</h3>
+                    <p>
+                        Estimates the source IP and affected IoT device
+                        associated with an attack.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 IoT SecureNet | Cyber Attack Detection & Attribution
+        </p>
+
+        <p>
+            Developed as an IoT Cyber Security Academic Project
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
